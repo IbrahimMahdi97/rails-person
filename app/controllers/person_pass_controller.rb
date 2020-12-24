@@ -10,9 +10,9 @@ class PersonPassController < ApplicationController
   end
 
   def create
-    # @check = Check.new(check_params)
+    @person_pass = PersonPass.new(check_params)
     binding.pry
-      if @person_pass.email == "ralf"  && @person_pass.password == "poop"
+      if @person_pass[:email] == "ralf"  && @person_pass[:password] == "poop"
         puts "username and password correct"
       else 
         puts "incorrect password and/or username"
