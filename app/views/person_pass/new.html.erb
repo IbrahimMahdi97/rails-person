@@ -1,0 +1,21 @@
+<h1>Enter Cerdentials</h1>
+
+<%= form_for :person_pass do |f|  %>
+
+  <div>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </div>
+  <div>
+    <%= f.submit "Submit" %> <br />
+    <%= f.label :message %>
+  </div>
+<% end %>
