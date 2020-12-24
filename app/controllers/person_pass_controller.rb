@@ -11,16 +11,19 @@ class PersonPassController < ApplicationController
 
   def create
     @person_pass = PersonPass.new(check_params)
-    binding.pry
+    # binding.pry
       if @person_pass[:email] == "ralf"  && @person_pass[:password] == "poop"
-        puts "username and password correct"
+        flash[:notice] =  "username and password correct"
+        return true
       else 
-        puts "incorrect password and/or username"
+        flash[:notice] =  "incorrect password and/or username"
+        return false
       end
+      @person_pass.update(:message)
   end 
 
   private 
   def check_params
-    params.require(:person_pass).permit(:email, :password)
+    params.require(:person_pass).permit(:email, :password, :username)
   end 
 end

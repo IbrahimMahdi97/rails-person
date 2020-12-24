@@ -4,6 +4,7 @@ class CreatePersonPasses < ActiveRecord::Migration[6.0]
       t.string :email
       t.string :password
       t.string :username
+      t.string :message
       t.timestamps
     end
   end

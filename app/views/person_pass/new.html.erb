@@ -1,4 +1,4 @@
-<h1>Enter Cerdentials</h1>
+<h1>Enter Credentials</h1>
 
 <%= form_for :person_pass, url: '/person_pass' do |f|  %>
 
@@ -16,6 +16,11 @@
   </div>
   <div>
     <%= f.submit "Submit" %> <br />
-    <%= f.label :message %>
+    <% if f.submit
+       puts f.label :notice
+    else
+      redirect_to '/'
+    end %>
+    
   </div>
 <% end %>
