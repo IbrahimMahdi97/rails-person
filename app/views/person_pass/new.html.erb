@@ -16,11 +16,10 @@
   </div>
   <div>
     <%= f.submit "Submit" %> <br />
-    <% if f.submit
-       puts f.label :notice
-    else
-      redirect_to '/'
-    end %>
-    
+   <% flash.each do |name, msg| %>
+   <div>
+      <%= msg %>
+   </div>
+    <% end %>
   </div>
 <% end %>
