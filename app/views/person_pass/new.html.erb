@@ -1,6 +1,6 @@
 <h1>Enter Credentials</h1>
 
-<%= form_for :person_pass, url: '/person_pass' do |f|  %>
+<%= form_for @person_pass, url: '/person_pass', method: :post do |f|  %>
 
   <div>
     <%= f.label :username %><br />
@@ -9,17 +9,25 @@
   <div>
     <%= f.label :email %><br />
     <%= f.text_field :email %>
+    <%= @person_pass.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
   <div>
     <%= f.label :password %><br />
     <%= f.text_field :password %>
+    <%= @person_pass.errors.full_messages_for(:password).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
   <div>
     <%= f.submit "Submit" %> <br />
-   <% flash.each do |name, msg| %>
-   <div>
-      <%= msg %>
-   </div>
-    <% end %>
   </div>
+  <% flash.each do |name, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
+  
+  
 <% end %>
