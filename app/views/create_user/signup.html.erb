@@ -1,0 +1,27 @@
+<h1>Create Account</h1>
+
+<%= form_for @create_user, url: '/create_user', method: :post do |f|  %>
+
+  <div>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+    <%= @create_user.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+    <%= @create_user.errors.full_messages_for(:password).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= f.submit "Submit" %> <br />
+  </div>
+  
+<% end %>

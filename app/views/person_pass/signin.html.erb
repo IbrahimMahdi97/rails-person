@@ -9,16 +9,10 @@
   <div>
     <%= f.label :email %><br />
     <%= f.text_field :email %>
-    <%= @person_pass.errors.full_messages_for(:email).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
   </div>
   <div>
     <%= f.label :password %><br />
     <%= f.text_field :password %>
-    <%= @person_pass.errors.full_messages_for(:password).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
   </div>
   <div>
     <%= f.submit "Submit" %> <br />
