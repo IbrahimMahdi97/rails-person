@@ -1,22 +1,26 @@
 class CreateUserController < ApplicationController
+  def index
+    @create_users = CreateUser.all
+  end
+  
   def new
     @create_user = CreateUser.new
   end 
 
   def create
-    
-    # binding.pry
-    
-    @create_user = CreateUser.create(params.require(:username).permit(:username, :email, :password))
+    @create_user = CreateUser.create(create_params)
     if @create_user.save()
-      redirect_to '/'
+      flash[:info] = "User created successfully"
+      
+      redirect_to '/person_pass'
     else
-      redirect_to '/create_user'
+      flash[:warning] = "User was not creted"
+      redirect_to '/'
     end
   end
 
   private 
-  def check_params
-    params.require(:create_user).permit(:id, :email, :password, :usernam, :message)
-  end 
+    def create_params
+      params.require(:create_user).permit(:email, :password, :username)
+    end 
 end
